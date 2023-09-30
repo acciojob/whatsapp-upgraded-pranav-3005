@@ -89,7 +89,10 @@ public class WhatsappRepository {
             {
                 if(groupUsersMap.get(i).contains(sender))
                 {
-                    messageHashMap.put(++msgId,message);
+                    message.setId(++msgId);
+                    message.setTimestamp(new Date());
+
+                    messageHashMap.put(msgId,message);
 
                     groupMessageMap.put(i,groupMessageMap.get(i)+1);
 
