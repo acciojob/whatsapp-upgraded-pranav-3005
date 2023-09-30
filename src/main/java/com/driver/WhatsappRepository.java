@@ -76,9 +76,9 @@ public class WhatsappRepository {
 
     public int createMessage(String content) {
         int id= ++msgId;
-        Date date=new Date();
+       // Date date=new Date();
 
-        messageHashMap.put(id,new Message(id,content,date));
+        messageHashMap.put(id,new Message(id,content,new Date()));
         return id;
     }
 
@@ -89,6 +89,8 @@ public class WhatsappRepository {
             {
                 if(groupUsersMap.get(i).contains(sender))
                 {
+                    messageHashMap.put(++msgId,message);
+
                     groupMessageMap.put(i,groupMessageMap.get(i)+1);
 
                     userMessageMap.get(sender.getName()).add(message);
